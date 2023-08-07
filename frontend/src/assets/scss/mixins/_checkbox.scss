@@ -1,0 +1,22 @@
+@mixin checkbox-variant($color-name, $color) {
+  .a23-checkbox.a23-#{$color-name} > input[type=checkbox]:checked + span:before {
+    border-right: 2px solid $color;
+    border-bottom: 2px solid $color;
+  }
+}
+@mixin filled-checkbox-variant($color-name, $color) {
+  .a23-filled-checkbox.a23-#{$color-name} > input[type=checkbox]:checked + span:after {
+    border: 2px solid $color;
+    background-color: $color;
+  }
+}
+@mixin checkbox-button-variant($color-name, $color) {
+  .a23-checkbox-button.a23-#{$color-name} > input[type=checkbox]:not(:checked) + .a23-label-text {
+    color: $color;
+    border: solid 1px $color;
+  }
+  .a23-checkbox-button.a23-#{$color-name} > input[type=checkbox]:checked + .a23-label-text {
+    border: solid 1px $color;
+    background-color: $color;
+  }
+}

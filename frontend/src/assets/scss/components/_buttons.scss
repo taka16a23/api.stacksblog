@@ -1,0 +1,397 @@
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("./icons/material-design-iconic-font/fonts/materialdesignicons-webfont.eot?v=1.8.36");
+  font-weight: normal;
+  font-style: normal
+}
+@media screen and (prefers-reduced-motion: reduce) {
+    button.a23-btn {
+        transition: none;
+    }
+}
+button {
+    &.a23-btn {
+        display: inline-block;
+        color: $light_button_color;
+        background-color: transparent;
+        padding: 0;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        border: 1px solid;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        // No selection
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+        * {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -ms-user-select: none;
+        }
+
+        &:not(:disabled):not(.disabled) {
+            cursor: pointer;
+        }
+        &:hover,
+        &:focus,
+        .focus {
+            text-decoration: none;
+            outline: 0;
+            @include focus-variant();
+            transform: translateY(-1px);
+            -webkit-transform: translateY(-1px);
+            -moz-transform: translateY(-1px);
+            -o-transform: translateY(-1px);
+        }
+        /* 無効時 */
+        &.disabled,
+        &:disabled,
+        &:focus:disabled,
+        &.focus:disabled {
+            color: $light_button_color !important;
+            border-color: $disable_color !important;
+            background-color: transparent !important;
+            cursor: default;
+            opacity: 0.65;
+            &:not(.secondary) {
+                color: $dark_button_color !important;
+                background-color: $disable_color !important;
+            }
+            // 無効ボタンのフォーカス時のアクションなし
+            // box-shadow: none !important;
+            // transform: none !important;
+            // -webkit-transform: none !important;
+            // -moz-transform: none !important;
+            // -o-transform: none !important;
+        }
+        /* Size */
+        &.a23-btn-sm {
+            padding: .25rem .5rem;
+            font-size: .76562rem;
+            line-height: 1.5;
+            .a23-btn-name {
+                &:before {
+                    font-size: .76562rem !important;
+                    line-height: 1.5 !important;
+                }
+            }
+        }
+        &.a23-btn-lg {
+            padding: .1rem 1rem;
+            font-size: 1.09375rem;
+            line-height: 1.5;
+            .a23-btn-name {
+                &:before {
+                    font-size: 1.09375rem !important;
+                    line-height: 1.5 !important;
+                }
+            }
+        }
+        /* div for Material tooltip */
+        &:not(.a23-btn-sm) > div {
+            padding: 0.375rem 0.75rem;
+        }
+        /* Shape */
+        &.a23-btn-block {
+            width: 100%;
+        }
+        &.a23-btn-rounded {
+            border-radius: 40px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        &.a23-btn-circle {
+            border-radius: 50% !important;
+        }
+        /* Danger Buttons */
+        &.a23-btn-danger,
+        &.a23-btn-delete,
+        &.a23-btn-cancel {
+            color: $danger_color;
+            border-color: $danger_color;
+            &:not(.secondary) {
+                background-color: $danger_color;
+                color: $dark_button_color;
+            }
+            &:hover,
+            &:focus {
+                color: $dark_button_color;
+                border-color: $danger_color;
+                background-color: $danger_strong_color;
+            }
+        }
+        /* DB Update Buttons */
+        &.a23-btn-data,
+        &.a23-btn-add,
+        &.a23-btn-save,
+        &.a23-btn-send,
+        &.a23-btn-edit,
+        &.a23-btn-update {
+            color: $data_color;
+            border-color: $data_color;
+
+            &:not(.secondary) {
+                background-color: $data_color;
+                color: $dark_button_color;
+            }
+
+            &:hover,
+            &:focus {
+                color: $dark_button_color;
+                background-color: $data_strong_color;
+                border-color: $data_color;
+            }
+        }
+        /* Window Buttons */
+        &.a23-btn-window,
+        &.a23-btn-back,
+        &.a23-btn-close,
+        &.a23-btn-move,
+        &.a23-btn-popup,
+        &.a23-btn-link {
+            color: $window_color;
+            border-color: $window_color;
+            &:not(.secondary) {
+                color: $dark_button_color;
+                background-color: $window_color;
+            }
+            &:hover,
+            &:focus {
+                color: $dark_button_color;
+                border-color: $window_color;
+                background-color: $window_strong_color;
+            }
+        }
+        /* Action Buttons */
+        &.a23-btn-action,
+        &.a23-btn-download,
+        &.a23-btn-upload,
+        &.a23-btn-print,
+        &.a23-btn-copytoclipboard {
+            color: $action_tough_color;
+            border-color: $action_tough_color;
+            &:not(.secondary) {
+                color: $light_button_color;
+                border-color: $action_strong_color;
+                background-color: $action_color;
+            }
+            &:hover,
+            &:focus {
+                color: $light_button_color;
+                border-color: $action_tough_color;
+                background-color: $action_strong_color;
+            }
+        }
+        /* Other Buttons */
+        &.a23-btn-other,
+        &.a23-btn-search,
+        &.a23-btn-clear,
+        &.a23-btn-more {
+            color: $other_color;
+            border-color: $other_color;
+            &:not(.secondary) {
+                background-color: $other_color;
+                color: $dark_button_color;
+            }
+            &:hover,
+            &:focus {
+                color: $dark_button_color;
+                border-color: $other_color;
+                background-color: $other_strong_color;
+            }
+        }
+        /* Operation Buttons */
+        &.a23-btn-operation,
+        &.a23-btn-previous,
+        &.a23-btn-previous,
+        &.a23-btn-next,
+        &.a23-btn-up,
+        &.a23-btn-down,
+        &.a23-btn-check,
+        &.a23-btn-execute {
+            color: $operation_color;
+            border-color: $operation_color;
+            &:not(.secondary) {
+                background-color: $operation_color;
+                color: $dark_button_color;
+            }
+            &:hover,
+            &:focus {
+                color: $dark_button_color;
+                border-color: $operation_color;
+                background-color: $operation_strong_color;
+            }
+        }
+        /* Icons */
+        .a23-btn-name:not(:empty) {
+            &:before {
+                padding-right: 2px;
+            }
+        }
+        /* Add Button */
+        &.a23-btn-add {
+            @include button-icon($font-material-design-icons, '\f415');
+        }
+        /* Delete Button */
+        &.a23-btn-delete {
+            @include button-icon($font-material-design-icons, '\f6cb');
+        }
+        /* Cancel Button */
+        &.a23-btn-cancel {
+            @include button-icon($font-material-design-icons, '\f156');
+        }
+        /* Save Button */
+        &.a23-btn-save {
+            @include button-icon($font-material-design-icons, '\f193');
+        }
+        /* Send Button */
+        &.a23-btn-send {
+            @include button-icon($font-material-design-icons, '\f45a');
+        }
+        /* Edit Button */
+        &.a23-btn-edit {
+            @include button-icon($font-material-design-icons, '\f3eb');
+        }
+        /* Update Button */
+        &.a23-btn-update {
+            @include button-icon($font-material-design-icons, '\f450');
+        }
+        /* Back Button */
+        &.a23-btn-back {
+            @include button-icon($font-material-design-icons, '\f04e');
+        }
+        /* Close Button */
+        &.a23-btn-close {
+            @include button-icon($font-material-design-icons, '\f5ad');
+        }
+        /* Move Button */
+        &.a23-btn-move {
+            @include button-icon($font-material-design-icons, '\f207');
+        }
+        /* Popup Button */
+        &.a23-btn-popup {
+            @include button-icon($font-material-design-icons, '\f555');
+        }
+        /* Link Button */
+        &.a23-btn-link {
+            @include button-icon($font-material-design-icons, '\f327');
+        }
+        /* Download Button */
+        &.a23-btn-download {
+            @include button-icon($font-material-design-icons, '\f162');
+        }
+        /* Upload Button */
+        &.a23-btn-upload {
+            @include button-icon($font-material-design-icons, '\f552');
+        }
+        /* Print Button */
+        &.a23-btn-print {
+            @include button-icon($font-material-design-icons, '\f42a');
+        }
+        /* Copy To Clipboard Button */
+        &.a23-btn-copytoclipboard {
+            @include button-icon($font-material-design-icons, '\f14d');
+        }
+        /* Search Button */
+        &.a23-btn-search {
+            @include button-icon($font-material-design-icons, '\f349');
+        }
+        /* Clear Button */
+        &.a23-btn-clear {
+            @include button-icon($font-material-design-icons, '\f0e2');
+        }
+        /* More Button */
+        &.a23-btn-more {
+            @include button-icon($font-material-design-icons, '\f13c');
+        }
+        /* Previous Button */
+        &.a23-btn-previous {
+            @include button-icon($font-material-design-icons, '\f04e');
+        }
+        /* Next Button */
+        &.a23-btn-next {
+            @include button-icon($font-material-design-icons, '\f055');
+        }
+        /* Up Button */
+        &.a23-btn-up {
+            @include button-icon($font-material-design-icons, '\f05e');
+        }
+        /* Down Button */
+        &.a23-btn-down {
+            @include button-icon($font-material-design-icons, '\f046');
+        }
+        /* Check Button */
+        &.a23-btn-check {
+            @include button-icon($font-material-design-icons, '\f12c');
+        }
+        /* Execute Button */
+        &.a23-btn-execute {
+            @include button-icon($font-material-design-icons, '\f241');
+        }
+        /* Email Button */
+        &.a23-btn-email {
+            @include button-icon($font-material-design-icons, '\f1f0');
+        }
+        /* PDF Button */
+        &.a23-btn-pdf {
+            @include button-icon($font-material-design-icons, '\f226');
+        }
+        /* Workflow Button */
+        &.a23-btn-workflow {
+            @include button-icon($font-material-design-icons, '\f019');
+        }
+        /* Duplicate Button */
+        &.a23-btn-duplicate {
+            @include button-icon($font-material-design-icons, '\f191');
+        }
+    }
+}
+
+/*
+ * Action Button 
+ *
+ */
+.a23-action-button-wrapper {
+  position: relative;
+  
+  .a23-action-button-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 20;
+    .a23-action-button {
+      justify-content: end;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .a23-action-button-container-top {
+    align-items: top;
+  }
+
+  .a23-action-button-container-center {
+    align-items: center;
+  }
+
+  .a23-action-button-container-bottom {
+    align-items: bottom;
+  }
+
+  &:hover > .a23-action-button-container {
+    display: flex !important;
+  }
+}

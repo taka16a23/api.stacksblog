@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+r"""Name: __init__.py
+
+"""
+from settei.views.settei_viewset import SetteiViewSet
+
+
+__all__ = [
+    'SetteiViewSet',
+]
+
+
+
+# For Emacs
+# Local Variables:
+# coding: utf-8
+# End:
+# __init__.py ends here

@@ -1,0 +1,141 @@
+$a23-lever-red: $a23-red;
+$a23-lever-pink: $a23-pink;
+$a23-lever-purple: $a23-purple;
+$a23-lever-deep-purple: $a23-deep-purple;
+$a23-lever-indigo: $a23-indigo;
+$a23-lever-blue: $a23-blue;
+$a23-lever-light-blue: $a23-light-blue;
+$a23-lever-cyan: $a23-cyan;
+$a23-lever-teal: $a23-teal;
+$a23-lever-green: $a23-green;
+$a23-lever-light-green: $a23-light-green;
+$a23-lever-lime: $a23-lime;
+$a23-lever-yellow: $a23-yellow;
+$a23-lever-amber: $a23-amber;
+$a23-lever-orange: $a23-orange;
+$a23-lever-deep-orange: $a23-deep-orange;
+$a23-lever-brown: $a23-brown;
+$a23-lever-grey: $a23-grey;
+$a23-lever-blue-grey: $a23-blue-grey;
+$a23-lever-black: $a23-black;
+$a23-lever-disabled: #BDBDBD;
+$a23-lever-off: #F1F1F1;
+$a23-lever-switch: #818181;
+$a23-lever-default-color: $a23-lever-blue;
+
+// lever
+.a23-lever {
+  // No selection
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+  }
+  > label > .a23-label {
+    font-weight: bold;
+  }
+  &.inline input[type=checkbox] {
+    display: inline-block;
+  }
+  input[type=checkbox] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    // for newline
+    display: block;
+    &:checked {
+      + .switch {
+        // Fallback
+        background-color: $a23-lever-default-color;
+        background-color: rgba($a23-lever-default-color, 0.5);
+        &:after {
+          // Fallback
+          background-color: $a23-lever-default-color;
+          left: 24px;
+        }
+      }
+    }
+    &:focus {
+      + .switch {
+        @include focus-variant();
+        &:after {
+          @include focus-variant();
+        }
+      }
+    }
+    // on click lever effect
+    &:not(:disabled) {
+      + .switch {
+        &:active {
+          &:after {
+            box-shadow: 0 1px 3px 1px rgba($a23-lever-black, 0.4), 0 0 0 15px rgba($a23-lever-light-blue, 0.1);
+          }
+        }
+      }
+    }
+    &[disabled] {
+      + .switch {
+        cursor: default;
+        &:after {
+          background-color: $a23-lever-disabled;
+        }
+      }
+    }
+  }
+  
+  .switch {
+    cursor: pointer;
+    margin: 0 14px;
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 15px;
+    background-color: #818181;
+    border-radius: 15px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    vertical-align: middle;
+    // circle switch
+    &:after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: 21px;
+      height: 21px;
+      background-color: $a23-lever-off;
+      border-radius: 21px;
+      box-shadow: 0 1px 3px 1px rgba($a23-lever-black, 0.4);
+      left: -5px;
+      top: -3px;
+      transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+    }
+  }
+  @include lever-variant("red", $a23-lever-red);
+  @include lever-variant("pink", $a23-lever-pink);
+  @include lever-variant("purple", $a23-lever-purple);
+  @include lever-variant("deep-purple", $a23-lever-deep-purple);
+  @include lever-variant("indigo", $a23-lever-indigo);
+  @include lever-variant("blue", $a23-lever-blue);
+  @include lever-variant("light-blue", $a23-lever-light-blue);
+  @include lever-variant("cyan", $a23-lever-cyan);
+  @include lever-variant("teal", $a23-lever-teal);
+  @include lever-variant("green", $a23-lever-green);
+  @include lever-variant("light-green", $a23-lever-light-green);
+  @include lever-variant("lime", $a23-lever-lime);
+  @include lever-variant("yellow", $a23-lever-yellow);
+  @include lever-variant("amber", $a23-lever-amber);
+  @include lever-variant("orange", $a23-lever-orange);
+  @include lever-variant("deep-orange", $a23-lever-deep-orange);
+  @include lever-variant("brown", $a23-lever-brown);
+  @include lever-variant("grey", $a23-lever-grey);
+  @include lever-variant("blue-grey", $a23-lever-blue-grey);
+  @include lever-variant("black", $a23-lever-black);
+}

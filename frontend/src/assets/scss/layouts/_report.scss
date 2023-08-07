@@ -1,0 +1,99 @@
+.a23-report {
+  /* reset */
+  body, div, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, li, ul,
+  brockquote, pre, table, caption, th, td, address, 
+  form, fieldset, legend, object {
+    margin: 0;
+    padding: 0;
+  }
+  h5, h6, pre, table, code, kbd, samp, acronym, input, textarea, select {
+    font-size: 100%;
+  }
+  a, ins {
+    text-decoration: none;
+  }
+  address, em, cite, dfn, var {
+    font-style: normal;
+  }
+  input, textarea {
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+  img {
+    vertical-align: baseline;
+  }
+  a img {
+    border: none;
+  }
+  html {  
+    overflow-y: scroll;  
+  }
+  /* 要素の初期化 */
+  * {
+    /* マージン・パディングをリセットした方がデザインしやすい */
+    margin: 0;
+    padding: 0;
+    /* デフォルトのフォント */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 9pt;
+    font-weight: normal;
+    /* 背景色・背景画像を印刷する（Chromeのみで有効） */
+    -webkit-print-color-adjust: exact;
+  }
+  ul, ol {
+    list-style-type: none;
+    list-style-position: outside;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  legend {
+    color: #333;
+  }
+}
+:root {
+  /* 左右余白サイズ */
+  --padding-side: 18mm;
+}
+
+@media print {
+  .a23-report-a4-portrait {
+    .sheet {
+      margin: 5mm auto;
+      overflow: hidden;
+      position: relative;
+      // box-sizing: border-box;
+      page-break-after: always;
+      /* 用紙サイズ A4 */
+      height: 297mm;
+      width: 210mm;
+      /* 余白サイズ */
+      padding-top: 20mm;
+      padding-left: 0mm;
+      padding-right: 0mm;
+    }
+  }
+}
+@media screen {
+  /* ページレイアウト (section.sheet を１ページとする) */
+  .a23-report-a4-portrait {
+    .sheet {
+      /* 背景を白く */
+      background: white; 
+      /* ドロップシャドウ */
+      box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3);
+      margin: 5mm auto;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      page-break-after: always;
+      /* 用紙サイズ A4 */
+      height: 297mm;
+      width: 210mm;
+      /* 余白サイズ */
+      padding-top: 20mm;
+      padding-left: var(--padding-side);
+      padding-right: var(--padding-side);
+    }
+  } 
+}

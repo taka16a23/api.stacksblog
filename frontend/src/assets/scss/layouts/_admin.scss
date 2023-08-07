@@ -1,0 +1,25 @@
+.a23-admin-popup {
+  .a23-nav-header {
+    display: none;
+  }
+  #a23-admin-sidebar {
+    display: none;
+  }
+  #a23-page-wrapper {
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+  }
+  .a23-page-title {
+    display: none !important;
+  }
+}
+.page-titles {
+  padding: 15px 30px;
+  background: #fff;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0;
+
+  .text-themecolor {
+    color: #1e88e5;
+  }  
+}

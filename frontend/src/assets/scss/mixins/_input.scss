@@ -1,0 +1,19 @@
+@mixin lever-variant($color-name, $color) {
+    &.a23-#{$color-name} input[type=checkbox] {
+        &:checked {
+            + .switch {
+                background-color: $color; // Fallback
+                background-color: rgba($color, 0.5);
+                &:after {
+                    background-color: $color;
+                }
+            }
+            &:not(:disabled) + .switch {
+                &:active:after {
+                    box-shadow: 0 1px 3px 1px $a23-black, 0 0 0 15px $color; // Fallback
+                    box-shadow: 0 1px 3px 1px rgba($a23-black, 0.4), 0 0 0 15px rgba($color, 0.1);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+import React, { Component } from "react";
+import { Link } from 'react-router-dom'
+import { ServiceFactory } from 'services';
+
+
+class Categories extends Component {
+
+  constructor(props) {
+    super(props)
+    this.models = [];
+    this.state = {
+      modelLength: this.models.length,
+    }
+  }
+
+  componentDidMount() {
+    var blogService = ServiceFactory.createBlogService();
+    blogService.listCategories().then(models => {
+      this.models = models;
+      this.setState({modelLength: this.models.length});
+    }).catch(err => {
+      alert(err);
+    });
+  }
+
+  render() {
+    return (
+      <div className='bg-white shadow-lg rounded-lg p-8 mb-4 pb-8'>
+        <h3 className='text-xl mb-4 font-semibold text-neutral-500 border-b pb-4'>
+          カテゴリー
+        </h3>
+        {this.models.map((category) => (
+          <Link key={category.slug} to={"/category/" + category.slug} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700">
+            <span className='block pb-1 mb-1'>
+              {category.name}
+            </span>
+          </Link>
+        ))}
+      </div>
+    );
+  };
+}
+
+export default Categories;

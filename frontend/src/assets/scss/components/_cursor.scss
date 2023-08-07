@@ -1,0 +1,9 @@
+.a23-cursor-pointer {
+  cursor: pointer;
+}
+.a23-selectable {
+  cursor: pointer;
+  &:hover {
+    background-color: #f6f9fc;
+  }
+}

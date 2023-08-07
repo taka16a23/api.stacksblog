@@ -1,0 +1,435 @@
+//
+// Meteors
+//
+
+.a23-meteors {
+    .a23-meteor-track {
+        .a23-meteor {
+            transform: rotate(-45deg);
+            opacity: 1;
+            height: 14px;
+            width: 14px;
+            background: #969696;
+            margin-right: 14px;
+        }
+        .a23-meteor-rect {
+            transform-origin: 0 0;
+        }
+        .a23-meteor-disc {
+            border-radius: 14px;
+        }
+        .a23-meteor-width-1 {
+            width: 28px;
+        }
+        .a23-meteor-width-2 {
+            width: 56px;
+        }
+        .a23-meteor-width-3 {
+            width: 84px;
+        }
+        .a23-meteor-width-4 {
+            width: 112px;
+        }
+        .a23-meteor-width-5 {
+            width: 140px;
+        }
+        .a23-meteor-width-6 {
+            width: 168px;
+        }
+        .a23-meteor-width-7 {
+            width: 196px;
+        }
+        .a23-meteor-width-8 {
+            width: 224px;
+        }
+        .a23-meteor-width-9 {
+            width: 252px;
+        }
+        .a23-meteor-width-10 {
+            width: 280px;
+        }
+        .a23-meteor-width-11 {
+            width: 308px;
+        }
+        &:nth-child(1) {
+            position: absolute;
+            // top: -120px;
+            // left: 0px;
+            bottom: 0;
+            right: 0;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        45deg,
+                        transparent 10%,
+                        rgba(242, 159, 255, 1) 11%,
+                        rgba(124, 153, 255, 0.1) 100%);
+                }
+            }
+        }
+        &:nth-child(2) {
+            position: absolute;
+            // top: -90px;
+            // left: 0px;
+        }
+        &:nth-child(3) {
+            position: absolute;
+            // top: -70px;
+            // left: 10px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -90px;
+                    // left: 90px;
+                }
+                &:nth-child(3){
+                    position: absolute;
+                    // top: -110px;
+                    // left: 110px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(4) {
+            position: absolute;
+            // top: -10px;
+            // left: -10px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(255, 218, 122, 1) 0%,
+                        rgba(255, 105, 105, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -110px;
+                    // left: 110px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -186px;
+                    // left: 182px;
+                }
+                &:nth-child(4) {
+                    position: absolute;
+                    // top: -200px;
+                    // left: 200px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(242, 159, 255, 1) 0%,
+                        rgba(124, 153, 255, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(5) {
+            position: absolute;
+            top: -54px;
+            left: 74px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(255, 218, 122, 1) 0%,
+                        rgba(255, 105, 105, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -70px;
+                    // left: 70px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -90px;
+                    // left: 90px;
+                }
+                &:nth-child(4) {
+                    position: absolute;
+                    // top: -140px;
+                    // left: 140px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+
+                }
+            }
+        }
+        &:nth-child(6) {
+            position: absolute;
+            // top: -80px;
+            // left: 140px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -70px;
+                    // left: 70px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -90px;
+                    // left: 90px;
+                }
+                &:nth-child(4) {
+                    position: absolute;
+                    // top: -140px;
+                    // left: 140px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(7) {
+            position: absolute;
+            // top: -160px;
+            // left: 250px;
+             .a23-meteor {
+                 &:nth-child(1) {
+                     position: absolute;
+                     background: linear-gradient(
+                         90deg,
+                         rgba(242, 159, 255, 1) 0%,
+                         rgba(124, 153, 255, 1) 100%);
+                 }
+             }
+        }
+        &:nth-child(8) {
+            position: absolute;
+            // top: -80px;
+            // left: 218px;
+             .a23-meteor {
+                 &:nth-child(1) {
+                     background: linear-gradient(
+                         90deg,
+                         rgba(100, 145, 214, 1) 0%,
+                         rgba(67, 240, 199, 1) 100%);
+                 }
+                 &:nth-child(2) {
+                     position: absolute;
+                     // top: -170px;
+                     // left: 170px;
+                 }
+             }
+        }
+        &:nth-child(9) {
+            position: absolute;
+            // top: -90px;
+            // left: 240px;
+            .a23-meteor {
+                &:nth-child(1) {
+                }
+            }
+        }
+        &:nth-child(10) {
+            position: absolute;
+            // top: -80px;
+            // left: 298px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(242, 159, 255, 1) 0%,
+                        rgba(124, 153, 255, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -150px;
+                    // left: 150px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -170px;
+                    // left: 170px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(242, 159, 255, 1) 0%,
+                        rgba(124, 153, 255, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(11) {
+            position: absolute;
+            // top: 270px;
+            // left: 60px;
+             .a23-meteor {
+                 &:nth-child(1) {
+                     background: linear-gradient(
+                         90deg,
+                         rgba(255, 218, 122, 1) 0%,
+                         rgba(255, 105, 105, 1) 100%);
+                 }
+                 &:nth-child(2) {
+                     position: absolute;
+                     // top: -70px;
+                     // left: 70px;
+                 }
+             }
+        }
+        &:nth-child(12) {
+            position: absolute;
+            // top: 310px;
+            // left: 60px;
+             .a23-meteor {
+                 &:nth-child(1) {
+                     background: linear-gradient(
+                         90deg,
+                         rgba(255, 218, 122, 1) 0%,
+                         rgba(255, 105, 105, 1) 100%);
+                 }
+             }
+        }
+        &:nth-child(13) {
+            position: absolute;
+            // top: 270px;
+            // left: 140px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(255, 218, 122, 1) 0%,
+                        rgba(255, 105, 105, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -112px;
+                    // left: 108px;
+                }
+            }
+        }
+        &:nth-child(14) {
+            position: absolute;
+            // top: 250px;
+            // left: 200px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(242, 159, 255, 1) 0%,
+                        rgba(124, 153, 255, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(15) {
+            position: absolute;
+            // top: 250px;
+            // left: 240px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -90px;
+                    // left: 90px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -162px;
+                    // left: 158px;
+                }
+                &:nth-child(4) {
+                    position: absolute;
+                    // top: -170px;
+                    // left: 170px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(242, 159, 255, 1) 0%,
+                        rgba(124, 153, 255, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(16) {
+            position: absolute;
+            // top: 300px;
+            // left: 230px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -70px;
+                    // left: 70px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -140px;
+                    // left: 140px;
+                }
+                &:nth-child(4) {
+                    position: absolute;
+                    // top: -160px;
+                    // left: 160px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+            }
+        }
+        &:nth-child(17) {
+            position: absolute;
+            // top: 270px;
+            // left: 300px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        90deg,
+                        rgba(100, 145, 214, 1) 0%,
+                        rgba(67, 240, 199, 1) 100%);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    // top: -96px;
+                    // left: 92px;
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    // top: -110px;
+                    // left: 110px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(242, 159, 255, 1) 0%,
+                        rgba(124, 153, 255, 1) 100%);
+                }
+             }
+        }
+        &:nth-child(18) {
+            position: absolute;
+            // top: 250px;
+            // left: 360px;
+            .a23-meteor {
+                &:nth-child(1) {
+                    background: linear-gradient(
+                        45deg,
+                        transparent 10%,
+                        rgba(100, 145, 214, 1) 11%,
+                        rgba(67, 240, 199, 0.2) 100%);
+                }
+            }
+        }
+    }
+}

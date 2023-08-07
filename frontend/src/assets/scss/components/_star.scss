@@ -1,0 +1,40 @@
+.a23-star {
+  position: absolute;
+  animation-name: star-blink;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-delay: -1s;
+  
+  &:nth-child(even) {
+    animation-delay: 2s;
+  }
+
+  &::before, &::after {
+    content: "";
+    height: 1.5rem;
+    width: 0.3rem;
+    border-radius: 45%;
+    background: #b0a69b;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+}
+@keyframes star-blink {
+  0% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.2;
+  }
+}

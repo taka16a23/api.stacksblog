@@ -1,0 +1,27 @@
+.ribbon-carp {
+  display: inline-block;
+  position: relative;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
+  /*文字の左右の余白*/
+  padding: 2px 20px 2px 16px;
+  // font-size: 18px;/*文字サイズ*/
+  // background: #1e88e5;/*背景色*/
+  color: #FFF;
+  box-sizing: border-box;
+  &:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+  }
+  &:after {
+    top: 0;
+    right: 0;
+    border-width: 12px 6px 12px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+  }
+}

@@ -1,0 +1,9 @@
+// Button icons
+@mixin button-icon($font, $content) {
+    .a23-btn-name {
+        &:before {
+            font: $font;
+            content: $content;
+        }
+    }
+}

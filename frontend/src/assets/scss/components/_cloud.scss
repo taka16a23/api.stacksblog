@@ -1,0 +1,46 @@
+.a23-clouds {
+    opacity: 0.4;
+}
+.a23-cloud {
+    display: inline-block;
+    width: 10rem;
+    height: 3rem;
+    background: rgb(145, 133, 132);
+    border-radius: 5rem 3.5rem 3.5rem 1.5rem;
+    position: absolute;
+    animation-name: cloud-move;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        background: inherit;
+        border-radius: 3.5rem;
+    }
+    
+    &::before {
+        width: 4rem;
+        height: 4.5rem;
+        bottom: 0;
+        left: 1.2rem;
+    }
+    
+    &::after {
+        width: 4rem;
+        height: 5rem;
+        bottom: 0;
+        right: 1.6rem;
+    }    
+}
+
+@keyframes cloud-move {
+    0% {
+        transform: translateX(-10rem);
+    }
+    
+    100% {
+        transform: translateX(125rem);
+    }
+}

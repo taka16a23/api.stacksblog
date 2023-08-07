@@ -1,0 +1,198 @@
+.a23-1-em {
+  width: 1em;
+}
+.a23-2-em {
+  width: 2em;
+}
+.a23-3-em {
+  width: 3em;
+}
+.a23-4-em {
+  width: 4em;
+}
+.a23-5-em {
+  width: 5em;
+}
+.a23-6-em {
+  width: 6em;
+}
+.a23-7-em {
+  width: 7em;
+}
+.a23-8-em {
+  width: 8em;
+}
+.a23-9-em {
+  width: 9em;
+}
+.a23-10-em {
+  width: 10em;
+}
+.a23-11-em {
+  width: 11em;
+}
+.a23-12-em {
+  width: 12em;
+}
+.a23-13-em {
+  width: 13em;
+}
+.a23-14-em {
+  width: 14em;
+}
+.a23-15-em {
+  width: 15em;
+}
+.a23-16-em {
+  width: 16em;
+}
+.a23-17-em {
+  width: 17em;
+}
+.a23-18-em {
+  width: 18em;
+}
+.a23-19-em {
+  width: 19em;
+}
+.a23-20-em {
+  width: 20em;
+}
+
+.id-1 {
+  width: 2em;
+}
+.id-2 {
+  width: 3em;
+}
+.id-3 {
+  width: 4em;
+}
+.id-4 {
+  width: 5em;
+}
+.id-5 {
+  width: 6em;
+}
+.id-6 {
+  width: 7em;
+}
+.id-7 {
+  width: 8em;
+}
+.id-8 {
+  width: 9em;
+}
+.id-9 {
+  width: 10em;
+}
+
+.a23-stamp-col {
+  width: 20em;
+}
+
+.a23-date-col {
+  width: 10em;
+}
+
+.a23-date-sm-col {
+  width: 8em;
+}
+
+.a23-address-col {
+  width: 17em;
+}
+
+.a23-table {
+  .MuiTableHead-root {
+    background-color: #1e88e5;
+  }
+  .MuiTableCell-head {
+    color: white;
+    font-weight: bold;
+  }
+  .MuiTableSortLabel-root {
+    color: white;
+    font-weight: bold;
+  }
+  .MuiTableSortLabel-root.MuiTableSortLabel-active.MuiTableSortLabel-root.MuiTableSortLabel-active .MuiTableSortLabel-icon {
+    color: white;
+  }
+  .MuiTableSortLabel-root.MuiTableSortLabel-active {
+    color: white;
+  }
+  .MuiTableSortLabel-root:hover {
+    color: white;
+  }
+  .MuiTableSortLabel-root:focus {
+    color: white;
+  }
+}
+
+.a23-unit {
+  width: 4.5em;
+}
+
+.a23-currency {
+  width: 10em;
+}
+
+.a23-quantity {
+  width: 6.5em;
+}
+
+.a23-tax {
+  width: 5.9em;
+}
+
+.a23-total-price {
+  width: 10em;
+}
+
+.a23-cell-popup {
+  position: relative;
+}
+
+.a23-cell-popup .a23-cell-popup-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  // transform: translateY(70%);  
+  z-index: 20;
+}
+
+.a23-cell-popup:hover .a23-cell-popup-container {
+  display: inline;
+}
+
+.a23-table tbody tr {
+  position: relative;
+  .a23-row-action-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 20;
+    align-items: center;
+    .a23-action-item {
+      justify-content: end;
+    }    
+  }
+  &:hover > td > .a23-row-action-container {
+    display: flex;
+  }
+}
+
+.a23-selected-row {
+  background-color: #ebf4fe;
+}
+
+.a23-row-selectable:not(.a23-selected-row):hover {
+  background-color: #e0e0e0;
+}
+
+.a23-row-hover:hover {
+  background-color: #f6f9fc;
+}

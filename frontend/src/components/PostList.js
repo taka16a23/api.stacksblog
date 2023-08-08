@@ -15,7 +15,7 @@ class PostList extends Component {
       modelLength: this.models.length,
       isLoaded: false,
       start: 0,
-      perPage: 10
+      perPage: 5
     }
   }
 

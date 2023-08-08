@@ -1,18 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 import PostCard from 'components/PostCard';
 import { ServiceFactory } from 'services';
+import queryString from 'query-string';
 
 
 class PostList extends Component {
-
-  static propTypes = {
-    categories: PropTypes.arrayOf(PropTypes.number),
-  }
-
-  static defaultProps = {
-    categories: [],
-  }
 
   constructor(props) {
     super(props);
@@ -24,12 +16,25 @@ class PostList extends Component {
 
   componentDidMount() {
     var oParams = new URLSearchParams();
-    this.props.categories.forEach(iCategoryID => {
-      oParams.append('category', iCategoryID);
-    });
+    let oGetParams = queryString.parse(window.location.search);
+    if(oGetParams.category !== undefined && Array.isArray(oGetParams.category) === true) {
+      oGetParams.category.forEach(strCategoryId => {
+        let iCategoryID = parseInt(strCategoryId);
+        if(isNaN(iCategoryID) !== true) {
+          oParams.append('category', iCategoryID);
+        }
+      })
+    }
+    if(oGetParams.category !== undefined && Array.isArray(oGetParams.category) !== true) {
+      let iCategoryID = parseInt(oGetParams.category);
+        if(isNaN(iCategoryID) !== true) {
+          oParams.append('category', iCategoryID);
+        }
+    }
     var blogService = ServiceFactory.createBlogService();
     blogService.listPosts(oParams).then(arrModels => {
-      this.models = arrModels
+      console.log("DEBUG-1-PostList.js")
+      this.models = arrModels;
       this.setState({modelLength: this.models.length});
     }).catch(err => {
       alert(err);

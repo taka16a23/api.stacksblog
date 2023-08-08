@@ -43,4 +43,4 @@ class PostDetail extends Component {
   };
 }
 
-export default PostCard;
+export default PostDetail;

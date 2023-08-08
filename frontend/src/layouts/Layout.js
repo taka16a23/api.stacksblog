@@ -1,6 +1,7 @@
 import React, { Component, lazy } from 'react';
 import Header from 'components/Header';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 
 const HomeComponent = lazy(() => new Promise((resolve) => {
   setTimeout(() => resolve(import("views/blog/Home")), 0);
@@ -18,15 +19,28 @@ const Error404 = lazy(() => new Promise((resolve) => {
 }));
 
 
-class BlogLayout extends Component {
+class Layout extends Component {
+
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
+
+  shouldComponentUpdate() {
+    console.log("shouldComponentUpdate");
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
+
   render() {
     return (
       <>
         <Header/>
         <Routes>
+          <Route exact={true} path='/errors/403' element={<Error403/>}/>
           <Route exact={true} path="/" element={<HomeComponent/>}/>
           <Route path="/post/:slug" element={<PostDetailComponent/>}/>
-          <Route path='/errors/403' element={<Error403/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
       </>
@@ -35,4 +49,4 @@ class BlogLayout extends Component {
 
 }
 
-export default BlogLayout;
+export default Layout;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
 import { ServiceFactory } from 'services';
 
 
@@ -30,11 +29,11 @@ class Categories extends Component {
           カテゴリー
         </h3>
         {this.models.map((category) => (
-          <Link key={category.slug} to={"/category/" + category.slug} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700">
+          <a key={category.category_id} href={"/?category=" + category.category_id} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700">
             <span className='block pb-1 mb-1'>
               {category.name}
             </span>
-          </Link>
+          </a>
         ))}
       </div>
     );

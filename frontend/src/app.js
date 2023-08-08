@@ -7,7 +7,7 @@ import { initReactI18next } from 'react-i18next';
 import enJson from 'locales/en.json';
 import jaJson from 'locales/ja.json';
 import { createBrowserHistory } from "history";
-import BlogLayout from 'layouts/BlogLayout';
+import Layout from 'layouts/Layout';
 
 const History = createBrowserHistory({ basename: "/" });
 
@@ -29,7 +29,7 @@ export default class App extends Component {
         <Provider store={configureStore()}>
           <BrowserRouter history={History}>
             <Routes>
-              <Route path="*" element={<BlogLayout/>}/>
+              <Route path="*" element={<Layout/>}/>
             </Routes>
           </BrowserRouter>
         </Provider>

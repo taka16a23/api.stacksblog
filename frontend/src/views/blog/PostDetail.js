@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import withRouter from "helpers/WithRouter";
 import moment from 'moment';
-import BlogLayout from 'layouts/BlogLayout';
 import PostCard from 'components/PostCard';
 import Categories from 'components/Categories';
 import { ServiceFactory } from 'services';

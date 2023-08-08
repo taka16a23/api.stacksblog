@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
 
@@ -8,18 +7,18 @@ class Header extends Component {
         <div className='container mx-auto px-10 mb-8'>
             <div className="border-b w-full inline-block border-blue-400 py-8">
                 <div className='md:float-left block'>
-                    <NavLink to="/">
+                    <a href="/">
                         <span className='cursor-pointer font-bold text-4xl text-white'>
                             {process.env.REACT_APP_NAME}
                         </span>
-                    </NavLink>
+                    </a>
                 </div>
                 <div className='hidden md:float-left md:contents'>
-                  <NavLink className="" to="https://taka16a23.com">
+                  <a className="" href="https://taka16a23.com" target="_window">
                     <span className='md:float-right hover:text-pink-600 mt-2 align-middle text-white ml-4 font-semibold cursor-pointer'>
                       My Portfolio
                     </span>
-                  </NavLink>
+                  </a>
                 </div>
             </div>
         </div>

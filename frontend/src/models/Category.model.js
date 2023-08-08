@@ -3,7 +3,6 @@ export default class CategoryModel extends Object {
     super();
     this.category_id = null;
     this.name = "";
-    this.slug = "";
     this.created_at = null;
     this.modified_at = null;
     this.created_by = null;
@@ -28,15 +27,6 @@ export default class CategoryModel extends Object {
 
   setName(a_sValue) {
     this.name = a_sValue;
-    return this;
-  }
-
-  getSlug() {
-    return this.slug;
-  }
-
-  setSlug(a_sValue) {
-    this.slug = a_sValue;
     return this;
   }
 

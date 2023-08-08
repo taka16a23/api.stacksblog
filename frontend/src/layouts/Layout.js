@@ -21,18 +21,6 @@ const Error404 = lazy(() => new Promise((resolve) => {
 
 class Layout extends Component {
 
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
-
-  shouldComponentUpdate() {
-    console.log("shouldComponentUpdate");
-  }
-
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
-
   render() {
     return (
       <>

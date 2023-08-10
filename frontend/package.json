@@ -39,6 +39,7 @@
     "match-sorter": "^6.3.1",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
+    "prismjs": "^1.29.0",
     "promise": "^8.3.0",
     "prop-types": "^15.8.1",
     "query-string": "^8.1.0",

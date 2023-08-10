@@ -4,6 +4,14 @@ import moment from 'moment';
 import Categories from 'components/Categories';
 import { ServiceFactory } from 'services';
 import { withTranslation } from 'react-i18next';
+import Prism from "prismjs";
+import "prismjs/themes/prism-tomorrow.min.css";
+import "prismjs/plugins/toolbar/prism-toolbar.min.css";
+import "prismjs/plugins/toolbar/prism-toolbar.min";
+import "prismjs/plugins/show-language/prism-show-language.min.js";
+import "prismjs/plugins/line-numbers/prism-line-numbers.min.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.min";
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min";
 
 
 class PostDatailComponent extends Component {
@@ -29,9 +37,14 @@ class PostDatailComponent extends Component {
         isLoaded: true,
         model: models[0],
       });
+      Prism.highlightAll();
     }).catch(err => {
       alert(err);
     });
+  }
+
+  componentDidUpdate() {
+    Prism.highlightAll();
   }
 
   render() {

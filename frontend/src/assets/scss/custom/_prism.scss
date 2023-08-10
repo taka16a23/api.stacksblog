@@ -1,0 +1,78 @@
+/* prism の設定 */
+pre[class*=language-] {
+  padding-top: 0.2rem !important;
+  padding-bottom: 1rem !important;
+}
+pre[class*=language-].line-numbers {
+  // padding-left: 1em !important;
+}
+
+/*ツールバーの設定*/
+div.code-toolbar {
+  padding-top: 12px;
+  margin: 0;
+
+  &> .toolbar {
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    background: #2d2d2d;
+    text-align: right;
+    padding: 0 0.5em;
+    /* 常時表示 */
+    opacity: 1 !important;
+
+    &> .toolbar-item {
+      margin-left: 8px;
+
+      &> button {
+        color: #fff !important;
+        border-radius: 8px !important;  
+      }
+      &> span {
+        box-shadow: none !important;
+        background: inherit;
+      }
+
+      &> a,
+      &> span {
+        color: #fff !important;
+        background-color: #2d2d2d !important;
+	      border-radius: 0 !important;
+      }
+      &:has(.copy-to-clipboard-button) {
+        border-radius: 8px !important;
+      }
+    }
+
+    /*ボタンの設定*/
+    button {
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      box-shadow: none;
+      padding: 0 0.5em;
+      line-height: 1.5;
+    }
+
+    button:hover,
+    button:focus,
+    button:active {
+      background: #fff !important;
+      color: #2d2d2d !important;
+    }
+  }
+  
+  /*言語表示ボタンの設定*/
+  &.show-lang {
+    position: absolute;
+    left: 0;
+  }
+
+  .toolbar .show-lang .show-lang-btn {
+    background: transparent;
+    font-size: 0.95em;
+    font-weight: bold;
+    pointer-events: none;
+  }  
+}

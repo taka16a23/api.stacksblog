@@ -4,6 +4,7 @@ import { ServiceFactory } from 'services';
 import queryString from 'query-string';
 import ReactPaginate from 'react-paginate';
 import { withTranslation } from 'react-i18next';
+import Spinner from "views/spinner/Spinner";
 
 
 class PostList extends Component {
@@ -56,6 +57,11 @@ class PostList extends Component {
   }
 
   render() {
+    if(this.state.isLoaded !== true) {
+      return (
+        <Spinner/>
+      )
+    }
     if(this.state.isLoaded === true && this.models.length <= 0) {
       return (
         <div>

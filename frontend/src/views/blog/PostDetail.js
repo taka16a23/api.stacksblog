@@ -4,6 +4,8 @@ import moment from 'moment';
 import Categories from 'components/Categories';
 import { ServiceFactory } from 'services';
 import { withTranslation } from 'react-i18next';
+import Spinner from "views/spinner/Spinner";
+
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/plugins/toolbar/prism-toolbar.min.css";
@@ -123,6 +125,11 @@ class PostDatailComponent extends Component {
   }
 
   render() {
+    if(this.state.isLoaded !== true) {
+      return (
+        <Spinner/>
+      )
+    }
     if(this.state.model === null) {
       return (
         <div className="container mx-auto px-10 mb-8">

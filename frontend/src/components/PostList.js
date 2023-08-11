@@ -44,6 +44,7 @@ class PostList extends Component {
           oParams.append('category', iCategoryID);
         }
     }
+    oParams.append('ordering', "-created_at");
     var blogService = ServiceFactory.createBlogService();
     blogService.listPosts(oParams).then(arrModels => {
       this.models = arrModels;

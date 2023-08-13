@@ -90,7 +90,7 @@ class PostList extends Component {
             )
           }
         </div>
-        <div>
+        <div role="navigation">
           <ReactPaginate
             pageCount={Math.ceil(this.models.length / this.state.perPage)}
             marginPagesDisplayed={3}

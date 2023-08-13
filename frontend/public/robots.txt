@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://blog.taka16a23.com/sitemap.xml

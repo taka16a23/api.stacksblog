@@ -11,10 +11,9 @@ export default class BlogService extends Object {
     this._posts_cache = {};
   }
 
-  listCategories() {
+  listCategories(a_oParams={}) {
     return new Promise((resolve, reject) => {
-      var tData = {'params': {
-      }};
+      var tData = {'params': a_oParams};
       this.category_repository.get(tData).then(models => {
         let result = models.map(model => {
           if(this._categories_cache[model.category_id] === undefined) {

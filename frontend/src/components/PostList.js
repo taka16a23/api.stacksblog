@@ -30,19 +30,13 @@ class PostList extends Component {
   componentDidMount() {
     var oParams = new URLSearchParams();
     let oGetParams = queryString.parse(window.location.search);
-    if(oGetParams.category !== undefined && Array.isArray(oGetParams.category) === true) {
-      oGetParams.category.forEach(strCategoryId => {
-        let iCategoryID = parseInt(strCategoryId);
-        if(isNaN(iCategoryID) !== true) {
-          oParams.append('category', iCategoryID);
-        }
+    if(oGetParams.category__name !== undefined && Array.isArray(oGetParams.category__name) === true) {
+      oGetParams.category__name.forEach(strCategoryName => {
+        oParams.append('category__name', strCategoryName);
       })
     }
-    if(oGetParams.category !== undefined && Array.isArray(oGetParams.category) !== true) {
-      let iCategoryID = parseInt(oGetParams.category);
-        if(isNaN(iCategoryID) !== true) {
-          oParams.append('category', iCategoryID);
-        }
+    if(oGetParams.category__name !== undefined && Array.isArray(oGetParams.category__name) !== true) {
+      oParams.append('category__name', oGetParams.category__name);
     }
     oParams.append('ordering', "-created_at");
     var blogService = ServiceFactory.createBlogService();

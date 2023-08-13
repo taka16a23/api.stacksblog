@@ -24,7 +24,7 @@ class PostViewset(viewsets.ModelViewSet):
 
     queryset = PostModel.objects.all()
     serializer_class = PostModelSerializer
-    filterset_fields = ['slug', 'content', 'category']
+    filterset_fields = ['slug', 'content', 'category', 'category__name', ]
 
 
 

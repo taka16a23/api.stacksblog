@@ -14,7 +14,9 @@ class Categories extends Component {
 
   componentDidMount() {
     var blogService = ServiceFactory.createBlogService();
-    blogService.listCategories().then(models => {
+    var oParams = new URLSearchParams();
+    oParams.append('ordering', "name");
+    blogService.listCategories(oParams).then(models => {
       this.models = models;
       this.setState({modelLength: this.models.length});
     }).catch(err => {
@@ -25,9 +27,9 @@ class Categories extends Component {
   render() {
     return (
       <div className='bg-white shadow-lg rounded-lg p-8 mb-4 pb-8'>
-        <h3 className='text-xl mb-4 font-semibold text-neutral-500 border-b pb-4'>
+        <h2 className='text-xl mb-4 font-semibold text-neutral-500 border-b pb-4'>
           カテゴリー
-        </h3>
+        </h2>
         {this.models.map((category) => (
           <a key={category.category_id} href={"/?category=" + category.category_id} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700">
             <span className='block pb-1 mb-1'>

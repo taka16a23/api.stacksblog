@@ -169,8 +169,8 @@ class PostDatailComponent extends Component {
                     src={this.state.model.image}
                     alt={this.state.model.title}
                     decoding='async'
-                    loading='eager'
-                    fetchpriority='high'
+                    loading='async'
+                    fetchpriority='low'
                     className="object-top h-full w-full rounded-t-lg"
                   />
                 </div>

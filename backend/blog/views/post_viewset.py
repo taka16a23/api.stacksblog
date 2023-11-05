@@ -22,7 +22,7 @@ class PostViewset(viewsets.ModelViewSet):
 
     http_method_names = ['get', ]
 
-    queryset = PostModel.objects.all()
+    queryset = PostModel.objects.filter(is_public=True)
     serializer_class = PostModelSerializer
     filterset_fields = ['slug', 'content', 'category', 'category__name', ]
 

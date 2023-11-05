@@ -67,6 +67,13 @@ class PostModel(BaseStampMixin, SoftDeleteMixin):
         blank=True,
         related_name="categories",
     )
+    # 公開フラグ
+    is_public = models.BooleanField(
+        u'公開',
+        null=False,
+        blank=False,
+        default=False,
+    )
 
     class Meta:
         db_table = 'blog_posts'

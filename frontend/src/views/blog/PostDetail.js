@@ -27,7 +27,7 @@ import "prismjs/components/prism-c";
 import "prismjs/components/prism-autohotkey.min.js";
 import "prismjs/components/prism-autoit.min.js";
 import "prismjs/components/prism-awk.min.js";
-import "prismjs/components/prism-bash.min.js";
+import Bash from "prismjs/components/prism-bash.min.js";
 import "prismjs/components/prism-basic.min.js";
 import "prismjs/components/prism-batch.min.js";
 import "prismjs/components/prism-cmake.min.js";
@@ -89,6 +89,9 @@ import "prismjs/components/prism-tsx.min.js";
 import "prismjs/components/prism-uri.min.js";
 import "prismjs/components/prism-vim.min.js";
 import "prismjs/components/prism-wiki.min.js";
+
+
+// Bash.prompt = /^\$ /m;
 
 
 class PostDatailComponent extends Component {

@@ -74,6 +74,13 @@ class PostModel(BaseStampMixin, SoftDeleteMixin):
         blank=False,
         default=False,
     )
+    # 下書きフラグ
+    is_draft = models.BooleanField(
+        u'下書き',
+        null=False,
+        blank=False,
+        default=False,
+    )
 
     class Meta:
         db_table = 'blog_posts'

@@ -24,7 +24,8 @@ class PostList extends Component {
     let pageNumber = data['selected'];
     this.setState({
       start: pageNumber * this.state.perPage
-    })
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   componentDidMount() {

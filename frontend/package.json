@@ -1,6 +1,6 @@
 {
-  "name": "Stack Blog",
-  "version": "1.0.7",
+  "name": "Stacks Blog",
+  "version": "1.0.8",
   "homepage": "/",
   "description": "System Develop Blogs",
   "main": "index.js",

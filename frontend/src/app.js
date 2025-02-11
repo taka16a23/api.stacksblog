@@ -8,6 +8,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import enJson from 'locales/en.json';
 import jaJson from 'locales/ja.json';
+import ScrollToTop from 'helpers/ScrollToTop';
+
 
 const History = createBrowserHistory({ basename: "/" });
 
@@ -28,6 +30,7 @@ export default class App extends Component {
     return (
         <Provider store={configureStore()}>
           <BrowserRouter history={History}>
+            <ScrollToTop/>
             <Routes>
               <Route path="*" element={<Layout/>}/>
             </Routes>

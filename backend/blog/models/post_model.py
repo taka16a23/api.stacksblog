@@ -10,6 +10,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 from base.models.base_stamp_mixin import BaseStampMixin
 from soft_delete.models.softdelete_mixin import SoftDeleteMixin
@@ -66,6 +67,14 @@ class PostModel(BaseStampMixin, SoftDeleteMixin):
         verbose_name=u'カテゴリー',
         blank=True,
         related_name="categories",
+    )
+    # 公開日時
+    publish_date = models.DateTimeField(
+        _('publish_date'),
+        # null不許可
+        null=False,
+        blank=False,
+        default=timezone.now(),
     )
     # 公開フラグ
     is_public = models.BooleanField(

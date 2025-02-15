@@ -13,6 +13,22 @@ class PostModelAdmin(SummernoteModelAdmin):
     Responsibility:
     """
     summernote_fields = ('content', )
+    list_display = (
+        'post_id',
+        'title',
+        'publish_date',
+        'created_at',
+        'is_public',
+        'is_draft',
+    )
+    list_editable = (
+        'publish_date',
+        'is_public',
+        'is_draft',
+    )
+    ordering = (
+        '-post_id',
+    )
 
 
 

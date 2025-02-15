@@ -4,6 +4,8 @@ r"""post_viewset --
 
 """
 from django.contrib.auth import SESSION_KEY, BACKEND_SESSION_KEY, load_backend
+from django.utils import timezone
+
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
@@ -52,6 +54,7 @@ class PostViewset(viewsets.ModelViewSet):
         queryset = super(PostViewset, self).get_queryset()
         if not self._has_session():
             queryset = queryset.filter(is_draft=False)
+            queryset = queryset.filter(publish_date__lte=timezone.now())
         return queryset
 
 

@@ -39,7 +39,7 @@ class PostList extends Component {
     if(oGetParams.category__name !== undefined && Array.isArray(oGetParams.category__name) !== true) {
       oParams.append('category__name', oGetParams.category__name);
     }
-    oParams.append('ordering', "-created_at");
+    oParams.append('ordering', "-publish_date");
     var blogService = ServiceFactory.createBlogService();
     blogService.listPosts(oParams).then(arrModels => {
       this.models = arrModels;

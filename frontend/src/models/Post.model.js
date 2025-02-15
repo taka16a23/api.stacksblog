@@ -8,6 +8,7 @@ export default class PostModel extends Object {
     this.image = null;
     this.content = "";
     this.category = {};
+    this.publish_date = null;
     this.created_at = null;
     this.modified_at = null;
     this.created_by = null;

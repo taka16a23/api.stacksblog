@@ -1,5 +1,5 @@
+import { APIFactory } from 'api';
 import { RepositoryFactory } from 'repositories';
-
 
 export default class BlogService extends Object {
 
@@ -41,6 +41,17 @@ export default class BlogService extends Object {
           return this._posts_cache[model.post_id];
         })
         resolve(result);
+      }).catch(err => {
+        reject(err);
+      });
+    });
+  }
+
+  listPostIds() {
+    return new Promise((resolve, reject) => {
+      let api = APIFactory.createPostIdsAPI();
+      api.get().then(data => {
+        resolve(data);
       }).catch(err => {
         reject(err);
       });

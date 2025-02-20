@@ -19,4 +19,13 @@ export default class APIFactory {
     }
     return APIFactory._cache['PostAPI'];
   }
+
+  // PostIds
+  static createPostIdsAPI() {
+    if(!APIFactory._cache['PostIdsAPI']) {
+      let klass = require('./PostIds.api.js').default;
+      APIFactory._cache['PostIdsAPI'] = new klass();
+    }
+    return APIFactory._cache['PostIdsAPI'];
+  }
 }

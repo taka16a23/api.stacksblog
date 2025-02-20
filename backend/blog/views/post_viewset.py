@@ -27,7 +27,7 @@ class PostViewset(viewsets.ModelViewSet):
 
     queryset = PostModel.objects.filter(is_public=True)
     serializer_class = PostModelSerializer
-    filterset_fields = ['slug', 'content', 'category', 'category__name', ]
+    filterset_fields = ['post_id', 'slug', 'content', 'category', 'category__name', ]
 
     def _has_session(self, ):
         """Check has session

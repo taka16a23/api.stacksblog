@@ -11,10 +11,9 @@ class PostList extends Component {
 
   constructor(props) {
     super(props);
-    this.models = [];
+    this.list_post_ids = [];
     this.state = {
-      modelLength: this.models.length,
-      isLoaded: false,
+      listPostIdsLength: this.list_post_ids.length,
       start: 0,
       perPage: 5
     }
@@ -41,11 +40,10 @@ class PostList extends Component {
     }
     oParams.append('ordering', "-publish_date");
     var blogService = ServiceFactory.createBlogService();
-    blogService.listPosts(oParams).then(arrModels => {
-      this.models = arrModels;
+    blogService.listPostIds().then(ids => {
+      this.list_post_ids = ids;
       this.setState({
-        modelLength: this.models.length,
-        isLoaded: true,
+        listPostIdsLength: this.list_post_ids.length,
       });
     }).catch(err => {
       alert(err);
@@ -53,12 +51,7 @@ class PostList extends Component {
   }
 
   render() {
-    if(this.state.isLoaded !== true) {
-      return (
-        <Spinner/>
-      )
-    }
-    if(this.state.isLoaded === true && this.models.length <= 0) {
+    if(this.list_post_ids.length <= 0) {
       return (
         <div>
           <div className="text-center text-white">
@@ -79,15 +72,15 @@ class PostList extends Component {
     return (
       <>
         <div>
-          {this.models.slice(
+          {this.list_post_ids.slice(
             this.state.start, this.state.start + this.state.perPage).map(
-              (oPostModel) => <PostCard post={oPostModel} key={oPostModel.slug}/>
+              (id) => <PostCard post_id={id} key={id}/>
             )
           }
         </div>
         <div role="navigation">
           <ReactPaginate
-            pageCount={Math.ceil(this.models.length / this.state.perPage)}
+            pageCount={Math.ceil(this.list_post_ids.length / this.state.perPage)}
             marginPagesDisplayed={3}
             pageRangeDisplayed={5}
             onPageChange={this.pageChange.bind(this)}

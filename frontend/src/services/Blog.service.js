@@ -77,4 +77,13 @@ export default class BlogService extends Object {
       });
     });
   }
+  getPostByID(a_sID) {
+    return new Promise((resolve, reject) => {
+      this.post_repository.getByID(a_sID).then(model => {
+        resolve(model);
+      }).catch(err => {
+        reject(err);
+      });
+    });
+  }
 }

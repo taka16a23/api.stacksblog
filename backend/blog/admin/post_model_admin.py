@@ -21,6 +21,9 @@ class PostModelAdmin(SummernoteModelAdmin):
         'is_public',
         'is_draft',
     )
+    list_display_links = (
+        'title',
+    )
     list_editable = (
         'publish_date',
         'is_public',

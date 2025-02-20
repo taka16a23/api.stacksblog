@@ -6,10 +6,12 @@ r"""Name: __init__.py
 """
 from blog.views.category_viewset import CategoryViewset
 from blog.views.post_viewset import PostViewset
+from blog.views.list_post_ids_viewset import ListPostIdsViewset
 
 __all__ = [
     'CategoryViewset',
     'PostViewset',
+    'ListPostIdsViewset',
 ]
 
 

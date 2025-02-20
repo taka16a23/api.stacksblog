@@ -14,7 +14,11 @@ router = DefaultRouter()
 router.register(r'category', views.CategoryViewset)
 router.register(r'post', views.PostViewset)
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('post/ids', views.ListPostIdsViewset.as_view()),
+]
+
+urlpatterns += router.urls
 
 
 

@@ -14,6 +14,7 @@ class PostList extends Component {
     this.list_post_ids = [];
     this.state = {
       listPostIdsLength: this.list_post_ids.length,
+      isLoaded: false,
       start: 0,
       perPage: 5
     }
@@ -44,6 +45,7 @@ class PostList extends Component {
       this.list_post_ids = ids;
       this.setState({
         listPostIdsLength: this.list_post_ids.length,
+        isLoaded: true,
       });
     }).catch(err => {
       alert(err);
@@ -51,7 +53,7 @@ class PostList extends Component {
   }
 
   render() {
-    if(this.list_post_ids.length <= 0) {
+    if(this.state.isLoaded === true && this.list_post_ids.length <= 0) {
       return (
         <div>
           <div className="text-center text-white">

@@ -25,7 +25,16 @@ class PostModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PostModel
-        fields = '__all__'
+        fields = (
+            'post_id',
+            'title',
+            'excerpt',
+            'slug',
+            'image',
+            'content',
+            'category_display',
+            'publish_date',
+        )
 
 
 

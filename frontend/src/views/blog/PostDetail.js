@@ -100,8 +100,16 @@ class PostDatailComponent extends Component {
   }
 
   componentDidMount() {
+    this.loadPostModel(this.props.params.slug);
+  }
+
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
+
+  loadPostModel(slug) {
     var blogService = ServiceFactory.createBlogService();
-    blogService.getPost(this.props.params.slug).then(models => {
+    blogService.getPost(slug).then(models => {
       if (models.length <= 0) {
         this.setState({
           isLoaded: true,
@@ -118,8 +126,11 @@ class PostDatailComponent extends Component {
     });
   }
 
-  componentDidUpdate() {
-    Prism.highlightAll();
+  handleOnClickNextPrev(slug) {
+    this.setState({
+      isLoaded: false,
+    });
+    this.loadPostModel(slug);
   }
 
   render() {
@@ -145,34 +156,71 @@ class PostDatailComponent extends Component {
         </div>
       )
     }
-
     return (
-      <div className='bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
-        <div className='relative overflow-hidden shadow-md mb-6'>
-          <img
-            src={this.state.model.image}
-            alt={this.state.model.title}
-            decoding='async'
-            loading='async'
-            fetchpriority='low'
-            className="object-top h-full w-full rounded-t-lg"
-          />
-        </div>
-        <div className='px-4 lg:px-0'>
-          <div className='flex items-center mb-8 w-full'>
-            <div className='font-medium text-gray-700'>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>
-                {moment(this.state.model.publish_date).format('YYYY年 M月 D日')}
-              </span>
-            </div>
+      <>
+        <div className='bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
+          <div className='relative overflow-hidden shadow-md mb-6'>
+            <img
+              src={this.state.model.image}
+              alt={this.state.model.title}
+              decoding='async'
+              loading='async'
+              fetchpriority='low'
+              className="object-top h-full w-full rounded-t-lg"
+            />
           </div>
-          <h1 className='mb-8 text-3xl font-semibold'>{this.state.model.title}</h1>
-          <div dangerouslySetInnerHTML={{__html: this.state.model.content}} />
+          <div className='px-4 lg:px-0'>
+            <div className='flex items-center mb-8 w-full'>
+              <div className='font-medium text-gray-700'>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>
+                  {moment(this.state.model.publish_date).format('YYYY年 M月 D日')}
+                </span>
+              </div>
+            </div>
+            <h1 className='mb-8 text-3xl font-semibold'>{this.state.model.title}</h1>
+            <div dangerouslySetInnerHTML={{__html: this.state.model.content}} />
+          </div>
         </div>
-      </div>
+        <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 mb-8">
+          {this.state.model.prev.slug !== "" ?
+           <div className="col-span-1 lg:col-span-4 adjacent-post rounded-lg relative h-72">
+             <div className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"
+                  style={{backgroundImage: "url(" + this.state.model.prev.image + ")"}}></div>
+             <div className="absolute rounded-lg bg-center bg-gradient-to-b opacity-50 from-gray-400 via-gray-700 to-black w-full h-72"></div>
+             <div className="flex flex-col rounded-lg p-4 items-center justify-center absolute w-full h-full">
+               <p className="text-white text-shadow font-semibold text-xs">{moment(this.state.model.prev.publish_date).format('YYYY年 M月 D日')}</p>
+               <p className="text-white text-shadow font-semibold text-2xl text-center">{this.state.model.prev.title}</p>
+             </div>
+             <span className="z-10 cursor-pointer absolute w-full h-full" onClick={() => this.handleOnClickNextPrev(this.state.model.prev.slug)}></span>
+             <div className="absolute arrow-btn bottom-5 text-center py-3 cursor-pointer bg-pink-600 left-4 rounded-full">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+               </svg>
+             </div>
+           </div>
+           : <div></div>}
+          {this.state.model.next.slug !== "" ?
+           <div className="col-span-1 lg:col-span-4 adjacent-post rounded-lg relative h-72">
+             <div className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"
+                  style={{backgroundImage: "url(" + process.env.REACT_APP_API_URL + this.state.model.next.image + ")"}}></div>
+             <div className="absolute rounded-lg bg-center bg-gradient-to-b opacity-50 from-gray-400 via-gray-700 to-black w-full h-72"></div>
+             <div className="flex flex-col rounded-lg p-4 items-center justify-center absolute w-full h-full">
+               <p className="text-white text-shadow font-semibold text-xs">{moment(this.state.model.next.publish_date).format('YYYY年 M月 D日')}</p>
+               <p className="text-white text-shadow font-semibold text-2xl text-center">{this.state.model.next.title}</p>
+             </div>
+             <span className="z-10 cursor-pointer absolute w-full h-full" onClick={() => this.handleOnClickNextPrev(this.state.model.next.slug)}></span>
+             <div className="absolute arrow-btn bottom-5 text-center py-3 cursor-pointer bg-pink-600 right-4 rounded-full">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+               </svg>
+             </div>
+           </div>
+           : <div></div>}
+        </div>
+      </>
     )
   }
 }

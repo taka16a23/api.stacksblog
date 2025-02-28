@@ -131,6 +131,7 @@ class PostDatailComponent extends Component {
       isLoaded: false,
     });
     this.loadPostModel(slug);
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   render() {

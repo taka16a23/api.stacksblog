@@ -47,10 +47,11 @@ export default class BlogService extends Object {
     });
   }
 
-  listPostIds() {
+  listPostIds(a_oParams={}) {
     return new Promise((resolve, reject) => {
+      var tData = {'params': a_oParams};
       let api = APIFactory.createPostIdsAPI();
-      api.get().then(data => {
+      api.get(tData).then(data => {
         resolve(data);
       }).catch(err => {
         reject(err);

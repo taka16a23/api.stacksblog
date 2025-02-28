@@ -23,6 +23,9 @@ class ListPostIdsViewset(APIView):
         if not self._has_session():
             queryset = PostModel.objects.filter(is_draft=False)
             queryset = queryset.filter(publish_date__lte=timezone.now())
+        category_name = request.GET.get('category__name', None)
+        if category_name is not None:
+            queryset = queryset.filter(category__name=category_name)
         queryset = queryset.order_by('-publish_date')
         list_ids = queryset.values_list('post_id', flat=True)
         return Response(list_ids)

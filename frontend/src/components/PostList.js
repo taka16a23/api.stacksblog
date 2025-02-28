@@ -40,7 +40,7 @@ class PostList extends Component {
     }
     oParams.append('ordering', "-publish_date");
     var blogService = ServiceFactory.createBlogService();
-    blogService.listPostIds().then(ids => {
+    blogService.listPostIds(oParams).then(ids => {
       this.list_post_ids = ids;
       this.setState({
         listPostIdsLength: this.list_post_ids.length,

@@ -27,7 +27,7 @@ class PostList extends Component {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
-  componentDidMount() {
+  searchPosts() {
     var oParams = new URLSearchParams();
     let oGetParams = queryString.parse(window.location.search);
     if(oGetParams.category__name !== undefined && Array.isArray(oGetParams.category__name) === true) {
@@ -49,6 +49,14 @@ class PostList extends Component {
     }).catch(err => {
       alert(err);
     });
+  }
+
+  componentDidMount() {
+    this.searchPosts();
+  }
+
+  componentDidUpdate() {
+    this.searchPosts();
   }
 
   render() {

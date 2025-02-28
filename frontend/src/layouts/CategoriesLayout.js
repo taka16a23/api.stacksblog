@@ -1,8 +1,9 @@
 import React, { Component, lazy } from 'react';
 import { Routes, Route } from "react-router-dom";
-import Categories from "components/Categories";
 import PostList from 'components/PostList'
 import PostDetail from 'views/blog/PostDetail';
+
+const Categories = lazy(() => import("components/Categories"));
 
 const Error404 = lazy(() => new Promise((resolve) => {
   setTimeout(() => resolve(import("views/errors/Error404")), 0);

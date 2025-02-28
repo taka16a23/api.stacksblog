@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+
+import { NavLink } from 'react-router-dom'
+
 import { ServiceFactory } from 'services';
 
 
-class Categories extends Component {
+export default class Categories extends Component {
 
   constructor(props) {
     super(props)
@@ -31,15 +34,13 @@ class Categories extends Component {
           カテゴリー
         </h2>
         {this.models.map((category) => (
-          <a key={category.category_id} href={"/?category__name=" + category.name} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700">
+          <NavLink to={"/?category__name=" + category.name} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700" key={category.category_id}>
             <span className='block pb-1 mb-1'>
               {category.name}
             </span>
-          </a>
+          </NavLink>
         ))}
       </div>
     );
   };
 }
-
-export default Categories;

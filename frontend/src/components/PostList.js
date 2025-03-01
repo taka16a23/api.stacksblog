@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import PostCard from 'components/PostCard';
-import { ServiceFactory } from 'services';
-import queryString from 'query-string';
+
 import ReactPaginate from 'react-paginate';
 import { withTranslation } from 'react-i18next';
+
+import PostCard from 'components/PostCard';
+import { ServiceFactory } from 'services';
 
 
 class PostList extends Component {
@@ -15,28 +16,16 @@ class PostList extends Component {
       listPostIdsLength: this.list_post_ids.length,
       isLoaded: false,
       start: 0,
-      perPage: 5
+      perPage: 5,
+      categoryName: props.CategoryName,
     }
   }
 
-  pageChange(data) {
-    let pageNumber = data['selected'];
-    this.setState({
-      start: pageNumber * this.state.perPage
-    });
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-
-  searchPosts() {
+  getPosts(categoryName) {
     var oParams = new URLSearchParams();
-    let oGetParams = queryString.parse(window.location.search);
-    if(oGetParams.category__name !== undefined && Array.isArray(oGetParams.category__name) === true) {
-      oGetParams.category__name.forEach(strCategoryName => {
-        oParams.append('category__name', strCategoryName);
-      })
-    }
-    if(oGetParams.category__name !== undefined && Array.isArray(oGetParams.category__name) !== true) {
-      oParams.append('category__name', oGetParams.category__name);
+    if(categoryName !== null) {
+      console.log(categoryName)
+      oParams.append('category__name', categoryName);
     }
     oParams.append('ordering', "-publish_date");
     var blogService = ServiceFactory.createBlogService();
@@ -45,6 +34,7 @@ class PostList extends Component {
       this.setState({
         listPostIdsLength: this.list_post_ids.length,
         isLoaded: true,
+        categoryName: categoryName,
       });
     }).catch(err => {
       alert(err);
@@ -52,11 +42,23 @@ class PostList extends Component {
   }
 
   componentDidMount() {
-    this.searchPosts();
+    this.getPosts(this.props.categoryName);
   }
 
-  componentDidUpdate() {
-    this.searchPosts();
+  shouldComponentUpdate(nextProps: Props, nextState: State) {
+    if(this.state.categoryName !== nextProps.categoryName) {
+      this.getPosts(nextProps.categoryName);
+      return true;
+    }
+    return false;
+  }
+
+  handlePageChange(data) {
+    let pageNumber = data['selected'];
+    this.setState({
+      start: pageNumber * this.state.perPage
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   render() {
@@ -92,7 +94,7 @@ class PostList extends Component {
             pageCount={Math.ceil(this.list_post_ids.length / this.state.perPage)}
             marginPagesDisplayed={3}
             pageRangeDisplayed={5}
-            onPageChange={this.pageChange.bind(this)}
+            onPageChange={this.handlePageChange.bind(this)}
             containerClassName='pagination list-style-none flex justify-center'
             pageClassName='page-item ml-2'
             pageLinkClassName='font-bold relative block rounded px-3 py-1.5 text-md text-white transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 hover:text-blue-700'

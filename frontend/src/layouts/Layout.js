@@ -1,5 +1,6 @@
 import React, { Component, lazy } from 'react';
 import { Routes, Route } from "react-router-dom";
+
 import Header from 'components/Header';
 import CategoriesLayout from 'layouts/CategoriesLayout';
 

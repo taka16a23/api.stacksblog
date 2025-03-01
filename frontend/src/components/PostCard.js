@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom'
-import moment from 'moment'
-import ContentLoader from "react-content-loader"
+
+import moment from 'moment';
+import { NavLink } from 'react-router-dom';
+import ContentLoader from "react-content-loader";
 
 import { ServiceFactory } from 'services';
 

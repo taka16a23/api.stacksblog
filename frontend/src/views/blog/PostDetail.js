@@ -100,16 +100,16 @@ class PostDatailComponent extends Component {
   }
 
   componentDidMount() {
-    this.loadPostModel(this.props.params.slug);
+    this.loadPostModel(this.props.params.id);
   }
 
   componentDidUpdate() {
     Prism.highlightAll();
   }
 
-  loadPostModel(slug) {
+  loadPostModel(id) {
     var blogService = ServiceFactory.createBlogService();
-    blogService.getPost(slug).then(models => {
+    blogService.getPost(id).then(models => {
       if (models.length <= 0) {
         this.setState({
           isLoaded: true,
@@ -126,11 +126,11 @@ class PostDatailComponent extends Component {
     });
   }
 
-  handleOnClickNextPrev(slug) {
+  handleOnClickNextPrev(id) {
     this.setState({
       isLoaded: false,
     });
-    this.loadPostModel(slug);
+    this.loadPostModel(id);
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 

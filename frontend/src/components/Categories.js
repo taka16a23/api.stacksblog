@@ -34,7 +34,7 @@ export default class Categories extends Component {
           カテゴリー
         </h2>
         {this.models.map((category) => (
-          <NavLink to={"/?category__name=" + category.name} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700" key={category.category_id}>
+          <NavLink to={"/category/" + category.name} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700" key={category.category_id}>
             <span className='block pb-1 mb-1'>
               {category.name}
             </span>

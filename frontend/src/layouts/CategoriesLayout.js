@@ -1,5 +1,6 @@
 import React, { Component, lazy } from 'react';
-import { Routes, Route } from "react-router-dom";
+
+import { NavLink, Routes, Route } from "react-router-dom";
 
 import PostList from 'components/PostList';
 import PostDetail from 'views/blog/PostDetail';
@@ -60,11 +61,11 @@ class CategoriesLayout extends Component {
                     カテゴリー
                   </h2>
                   {this.models.map((category) => (
-                    <div to={"/category/" + category.name} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700" key={category.category_id} onClick={() => {this.handleOnClick(category.name)}}>
+                    <NavLink to={"/"} className="cursor-pointer text-neutral-500 no-underline hover:underline hover:text-blue-700" key={category.category_id} onClick={() => {this.handleOnClick(category.name)}}>
                       <span className='block pb-1 mb-1'>
                         {category.name}
                       </span>
-                    </div>
+                    </NavLink>
                   ))}
                 </div>
               </div>

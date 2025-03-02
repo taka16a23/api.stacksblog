@@ -49,13 +49,13 @@ class PostList extends Component {
   shouldComponentUpdate(nextProps: Props, nextState: State) {
     if(this.state.categoryName !== nextProps.categoryName) {
       this.getPosts(nextProps.categoryName);
-      return true;
     }
-    return false;
+    return true;
   }
 
   handlePageChange(data) {
     let pageNumber = data['selected'];
+    console.log(pageNumber);
     this.setState({
       start: pageNumber * this.state.perPage
     });

@@ -27,7 +27,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://blog.taka16a23.com.s3-website-ap-northeast-1.amazonaws.com',
     'https://main.d3marf7vppdnlc.amplifyapp.com',
     'https://test-blog.taka16a23.com',
-    'https://dev-blog.taka16a23.com/',
+    'https://dev-blog.taka16a23.com',
 ]
 
 CORS_ORIGIN_REGEX_WHITELIST = [

@@ -9,6 +9,9 @@ from django.utils import timezone
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
+from rest_framework import serializers
+from drf_spectacular.utils import (
+    extend_schema, inline_serializer, OpenApiResponse, OpenApiExample)
 
 from blog.models.post_model import PostModel
 
@@ -18,6 +21,27 @@ class ListPostIdsViewset(APIView):
         AllowAny
     ]
 
+    @extend_schema(
+        summary="List all blog post ids.",
+        responses={
+            200: OpenApiResponse(
+                response=inline_serializer(
+                    name='Response',
+                    fields={
+                        'ids': serializers.IntegerField(),
+                    },
+                ),
+            )
+        },
+        examples=[OpenApiExample(
+            name='例',
+            value=[
+                1, 2, 3,
+            ]
+        )],
+        description='''ブログ記事ID一覧を取得\n
+管理ページにログイン時(セッションあり)の場合は、下書き中の記事IDも取得''',
+    )
     def get(self, request, format=None):
         queryset = PostModel.objects.filter(is_public=True)
         if not self._has_session():

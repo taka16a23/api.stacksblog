@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework import serializers
 from drf_spectacular.utils import (
-    extend_schema, inline_serializer, OpenApiResponse, OpenApiExample)
+    extend_schema, inline_serializer, OpenApiParameter, OpenApiResponse, OpenApiExample)
 
 from blog.models.post_model import PostModel
 
@@ -23,6 +23,14 @@ class ListPostIdsViewset(APIView):
 
     @extend_schema(
         summary="List all blog post ids.",
+        parameters=[
+            OpenApiParameter(
+                name='category__name',
+                description='Filter by category Nmae',
+                required=False,
+                type=str,
+            ),
+        ],
         responses={
             200: OpenApiResponse(
                 response=inline_serializer(

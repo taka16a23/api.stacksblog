@@ -29,6 +29,7 @@ class CategoryModel(BaseStampMixin):
         default='',
         null=False,
         blank=False,
+        unique=True,
         db_index=False,
         help_text=_('Ex. Web'),
     )
